@@ -41,16 +41,20 @@
       <mat-card-header>
         <mat-card-title class="text-lg">{{task.title}}</mat-card-title>
         <mat-card-subtitle>
-          <mat-chip [class]="'status-chip ' +
-            (task.status === 'Pendente' ? 'pendente' :
-            task.status === 'Em andamento' ? 'em-andamento' :
-            task.status === 'Concluído' ? 'concluido' : '')">
-            <span [class]="
-              task.status === 'Pendente' ? 'text-yellow-800 font-bold' :
-              task.status === 'Em andamento' ? 'text-blue-800 font-bold' :
-              task.status === 'Concluído' ? 'text-green-800 font-bold' : ''">
+          <mat-chip [ngClass]="{
+            'status-chip': true,
+            'pendente': task.status === 'Pendente',
+            'em-andamento': task.status === 'Em andamento',
+            'concluido': task.status === 'Concluído'
+          }">
+            <span [ngClass]="{
+              'text-yellow-800': task.status === 'Pendente',
+              'text-blue-800': task.status === 'Em andamento',
+              'text-green-800': task.status === 'Concluído'
+            }">
               {{task.status}}
             </span>
+
           </mat-chip>
         </mat-card-subtitle>
       </mat-card-header>

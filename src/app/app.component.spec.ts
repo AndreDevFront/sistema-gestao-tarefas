@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatChipsModule } from '@angular/material/chips';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -13,6 +14,7 @@ describe('AppComponent', () => {
       declarations: [AppComponent],
       imports: [
         MatToolbarModule,
+        MatChipsModule,
         BrowserAnimationsModule
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -10,8 +10,9 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatToolbarModule} from '@angular/material/toolbar';
+
+
+
 
 @NgModule({
   declarations: [
@@ -27,10 +28,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
-    MatSnackBarModule,
-    MatToolbarModule
-
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
