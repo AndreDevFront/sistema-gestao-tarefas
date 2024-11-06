@@ -1,0 +1,75 @@
+<div class="mx-auto px-4 py-8">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Gerenciador de Tarefas</h1>
+    <button mat-raised-button color="primary" (click)="openAddDialog()">
+      <mat-icon>add</mat-icon>
+      Nova Tarefa
+    </button>
+  </div>
+
+  <div class="flex justify-end gap-2 mb-4">
+    <button mat-raised-button color="accent" (click)="exportToCSV()">
+      <mat-icon>download</mat-icon>
+      Exportar CSV
+    </button>
+    <button mat-raised-button color="accent" (click)="exportToExcel()">
+      <mat-icon>table_view</mat-icon>
+      Exportar Excel
+    </button>
+  </div>
+
+  <div class="flex gap-4 mb-6">
+    <mat-form-field class="w-full">
+      <mat-label>Pesquisar</mat-label>
+      <input matInput [(ngModel)]="searchTerm" (keyup)="applyFilters()" placeholder="Buscar tarefas...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="w-48">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="statusFilter" (selectionChange)="applyFilters()">
+        <mat-option value="all">Todos</mat-option>
+        <mat-option value="Pendente">Pendente</mat-option>
+        <mat-option value="Em andamento">Em andamento</mat-option>
+        <mat-option value="Concluído">Concluído</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <mat-card *ngFor="let task of filteredTasks; trackBy: trackByTaskId" class="hover:shadow-lg transition-shadow">
+      <mat-card-header>
+        <mat-card-title class="text-lg">{{task.title}}</mat-card-title>
+        <mat-card-subtitle>
+          <mat-chip [class]="'status-chip ' +
+            (task.status === 'Pendente' ? 'pendente' :
+            task.status === 'Em andamento' ? 'em-andamento' :
+            task.status === 'Concluído' ? 'concluido' : '')">
+            <span [class]="
+              task.status === 'Pendente' ? 'text-yellow-800 font-bold' :
+              task.status === 'Em andamento' ? 'text-blue-800 font-bold' :
+              task.status === 'Concluído' ? 'text-green-800 font-bold' : ''">
+              {{task.status}}
+            </span>
+          </mat-chip>
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="py-4">
+        <p class="line-clamp-2">{{task.description}}</p>
+      </mat-card-content>
+
+      <mat-card-actions class="flex justify-end gap-2">
+        <button mat-icon-button (click)="openDetailDialog(task)" color="primary">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button (click)="openEditDialog(task)" color="accent">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="confirmDelete(task)" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

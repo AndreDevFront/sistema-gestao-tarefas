@@ -1,0 +1,40 @@
+<div class="p-6">
+  <h2 class="text-xl font-bold mb-6">{{isEditMode ? 'Editar' : 'Nova'}} Tarefa</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+    <mat-form-field  class="w-full">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="title" placeholder="Digite o título">
+      <mat-error *ngIf="taskForm.get('title')?.hasError('required')">
+        Título é obrigatório
+      </mat-error>
+      <mat-error *ngIf="taskForm.get('title')?.hasError('minlength')">
+        Título deve ter no mínimo 3 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-full" color="accent">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="description" rows="4" placeholder="Digite a descrição"></textarea>
+      <mat-error *ngIf="taskForm.get('description')?.hasError('required')">
+        Descrição é obrigatória
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field  class="w-full">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="Pendente">Pendente</mat-option>
+        <mat-option value="Em andamento">Em andamento</mat-option>
+        <mat-option value="Concluído">Concluído</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="flex justify-end gap-2">
+      <button mat-button type="button" (click)="onCancel()">Cancelar</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+        {{isEditMode ? 'Salvar' : 'Criar'}}
+      </button>
+    </div>
+  </form>
+</div>

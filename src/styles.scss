@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+// styles.scss
+.snackbar-success {
+  .mdc-snackbar__surface {
+    background-color: #4caf50 !important;
+  }
+
+  .mat-mdc-snack-bar-label, .mat-mdc-snack-bar-actions {
+    color: white !important;
+  }
+}
+
+.snackbar-error {
+  .mdc-snackbar__surface {
+    background-color: #f44336 !important;
+  }
+
+  .mat-mdc-snack-bar-label, .mat-mdc-snack-bar-actions {
+    color: white !important;
+  }
+}
+
+.snackbar-warning {
+  .mdc-snackbar__surface {
+    background-color: #ff9800 !important;
+  }
+
+  .mat-mdc-snack-bar-label, .mat-mdc-snack-bar-actions {
+    color: white !important;
+  }
+}
+
+.snackbar-info {
+  .mdc-snackbar__surface {
+    background-color: #2196f3 !important;
+  }
+
+  .mat-mdc-snack-bar-label, .mat-mdc-snack-bar-actions {
+    color: white !important;
+  }
+}
