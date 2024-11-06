@@ -52,7 +52,7 @@ Um sistema moderno e intuitivo para gerenciamento de tarefas, desenvolvido com A
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/sistema-gestao-tarefas.git
+git clone https://github.com/AndreDevFront/sistema-gestao-tarefas.git
 ```
 
 2. Navegue até o diretório do projeto:
