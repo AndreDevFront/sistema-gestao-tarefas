@@ -11,18 +11,22 @@ Um sistema moderno e intuitivo para gerenciamento de tarefas, desenvolvido com A
 
 ### Tela Principal
 ![Tela Principal do Sistema](screenshots/todo-home.png)
+
 *Interface principal do sistema com lista de tarefas, filtros e opções de exportação*
 
 ### Formulário de Nova Tarefa
 ![Formulário de Nova Tarefa](screenshots/todo-modal.png)
+
 *Modal para criação de novas tarefas com campos para título, descrição e status*
 
 ### Testes Unitários
 ![Testes Unitários](screenshots/jasmine.png)
+
 *22 specs executados com sucesso, garantindo a qualidade do código*
 
 ### Estrutura do Projeto
 ![Estrutura do Projeto](screenshots/todo.png)
+
 *Organização modular do projeto seguindo as melhores práticas do Angular*
 
 ## ✨ Funcionalidades
